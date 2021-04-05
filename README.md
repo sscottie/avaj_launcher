@@ -25,4 +25,4 @@ $ cat simulation.txt
 ```console
 $ bash ./clear_class.sh
 ```
-<div align="right"> <h6>developed by sscottie a.k.a. Andrei Titov</h6> </div>
+*<div align="right"> <h6>developed by sscottie a.k.a. Andrei Titov</h6> </div>*
