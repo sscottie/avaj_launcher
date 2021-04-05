@@ -1,4 +1,4 @@
-package com.avaj.aircraft;
+package com.sscottie.avaj.aircraft;
 
 public enum AircraftType {
     BALLOON ("Baloon", "994736b4f0aec72f6e5ae580051d012f"),

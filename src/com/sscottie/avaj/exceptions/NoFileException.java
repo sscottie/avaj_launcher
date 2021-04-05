@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package com.avaj.exceptions;
+package com.sscottie.avaj.exceptions;
 
 public class NoFileException extends RuntimeException {
     public NoFileException(String message) {

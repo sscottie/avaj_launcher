@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package com.avaj;
+package com.sscottie.avaj;
 
-import com.avaj.aircraft.AircraftFactory;
-import com.avaj.aircraft.Flyable;
-import com.avaj.coordinates.Coordinates;
-import com.avaj.exceptions.AircraftCreateException;
-import com.avaj.exceptions.IncorrectScenarioFileException;
-import com.avaj.exceptions.NoFileException;
-import com.avaj.weather_tower.WeatherTower;
+import com.sscottie.avaj.aircraft.AircraftFactory;
+import com.sscottie.avaj.aircraft.Flyable;
+import com.sscottie.avaj.coordinates.Coordinates;
+import com.sscottie.avaj.exceptions.AircraftCreateException;
+import com.sscottie.avaj.exceptions.IncorrectScenarioFileException;
+import com.sscottie.avaj.exceptions.NoFileException;
+import com.sscottie.avaj.weather_tower.WeatherTower;
 
 import java.io.*;
 import java.util.ArrayList;

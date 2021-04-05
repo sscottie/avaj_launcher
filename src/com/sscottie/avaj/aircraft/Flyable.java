@@ -1,7 +1,7 @@
-package com.avaj.aircraft;
+package com.sscottie.avaj.aircraft;
 
-import com.avaj.coordinates.Coordinates;
-import com.avaj.weather_tower.WeatherTower;
+import com.sscottie.avaj.coordinates.Coordinates;
+import com.sscottie.avaj.weather_tower.WeatherTower;
 
 public interface Flyable {
     void updateConditions();

@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package com.avaj.aircraft;
+package com.sscottie.avaj.aircraft;
 
-import com.avaj.coordinates.Coordinates;
+import com.sscottie.avaj.coordinates.Coordinates;
 
 import java.util.logging.Logger;
 

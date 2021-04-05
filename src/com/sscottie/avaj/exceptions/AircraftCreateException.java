@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package com.avaj.exceptions;
+package com.sscottie.avaj.exceptions;
 
 public class AircraftCreateException extends RuntimeException {
     public AircraftCreateException(String message) {

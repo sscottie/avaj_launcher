@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package com.avaj.weather_tower;
+package com.sscottie.avaj.weather_tower;
 
-import com.avaj.aircraft.Flyable;
+import com.sscottie.avaj.aircraft.Flyable;
 
 import java.util.logging.Logger;
 import java.util.List;

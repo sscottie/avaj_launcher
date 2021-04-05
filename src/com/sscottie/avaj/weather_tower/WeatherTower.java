@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package com.avaj.weather_tower;
+package com.sscottie.avaj.weather_tower;
 
-import com.avaj.coordinates.Coordinates;
-import com.avaj.weather.WeatherProvider;
+import com.sscottie.avaj.coordinates.Coordinates;
+import com.sscottie.avaj.weather.WeatherProvider;
 
 public class WeatherTower extends Tower {
 	private static WeatherTower weatherTower;

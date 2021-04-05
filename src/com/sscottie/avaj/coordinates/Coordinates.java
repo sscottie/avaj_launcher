@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package com.avaj.coordinates;
+package com.sscottie.avaj.coordinates;
 
 public class Coordinates {
     private final int longitude;

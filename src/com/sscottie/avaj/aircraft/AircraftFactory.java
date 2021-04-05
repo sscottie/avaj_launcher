@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package com.avaj.aircraft;
+package com.sscottie.avaj.aircraft;
 
-import com.avaj.exceptions.AircraftCreateException;
-import com.avaj.coordinates.Coordinates;
+import com.sscottie.avaj.exceptions.AircraftCreateException;
+import com.sscottie.avaj.coordinates.Coordinates;
 
 public class AircraftFactory {
     public static Flyable newAircraft(String type, String name,

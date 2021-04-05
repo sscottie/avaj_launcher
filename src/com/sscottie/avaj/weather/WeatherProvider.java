@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package com.avaj.weather;
+package com.sscottie.avaj.weather;
 
-import com.avaj.coordinates.Coordinates;
+import com.sscottie.avaj.coordinates.Coordinates;
 
 public class WeatherProvider {
     private static WeatherProvider weatherSimulator;
