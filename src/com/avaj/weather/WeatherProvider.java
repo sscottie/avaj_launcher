@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package avaj.weather;
+package com.avaj.weather;
+
+import com.avaj.coordinates.Coordinates;
 
 public class WeatherProvider {
     private static WeatherProvider weatherSimulator;
@@ -20,8 +22,13 @@ public class WeatherProvider {
 
     public static WeatherProvider provideWeather() {
         if (weatherSimulator == null) {
-            weatherSimulator = new WeatherSimulation();
+            weatherSimulator = new WeatherProvider();
         }
         return weatherSimulator;
+    }
+
+    public String getCurrentWeather(Coordinates coordinates) {
+        int randomInt = ((int) (Math.random() * (coordinates.getLongitude()) + coordinates.getLatitude() + coordinates.getHeight())) % 4;
+        return weather[randomInt];
     }
 }

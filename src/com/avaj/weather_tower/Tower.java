@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package avaj.weather_tower;
+package com.avaj.weather_tower;
 
-// import avaj.aircraft.Flyable;
+import com.avaj.aircraft.Flyable;
 
 import java.util.logging.Logger;
 import java.util.List;
@@ -29,18 +29,18 @@ public abstract class Tower {
 
 	void unregister(Flyable flyable) {
 		observers.remove(flyable);
-		logger.info("Tower says: " + flyable.toString() + " landed without surprises. Congrats!")
+		logger.info("Tower says: " + flyable.toString() + " landed without surprises. Congrats!");
 	}
 
 	protected void conditionsChanged() {
 		List<Flyable> unregistered = new ArrayList<Flyable>();
 		for (Flyable flyable : observers) {
 			flyable.updateConditions();
-			if (flyable.getCoordinates().getHeight() <=) {
+			if (flyable.getCoordinates().getHeight() <= 0) {
 				unregistered.add(flyable);
 			}
 		}
-		for (Flyable flyable: unregister) {
+		for (Flyable flyable: unregistered) {
 			unregister(flyable);
 		}
 	}

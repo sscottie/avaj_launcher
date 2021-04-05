@@ -16,4 +16,4 @@
 find * -name "*.java" > sources.txt
 javac -sourcepath . @sources.txt
 cd src
-java avaj.Avaj ../scenario.txt
+java com.avaj.Avaj ../scenario.txt

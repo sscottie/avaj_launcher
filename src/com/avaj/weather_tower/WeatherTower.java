@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package avaj.weather_tower;
+package com.avaj.weather_tower;
 
-import avaj.coordinates.Coordinates;
-import avaj.weather.WeatherProvider;
+import com.avaj.coordinates.Coordinates;
+import com.avaj.weather.WeatherProvider;
 
 public class WeatherTower extends Tower {
 	private static WeatherTower weatherTower;
@@ -22,7 +22,7 @@ public class WeatherTower extends Tower {
 	private WeatherTower() {}
 
 	public String getWeather(Coordinates coordinates) {
-		return weatherSimulation.getCurrentWeather(coordinates);
+		return weatherSimulator.getCurrentWeather(coordinates);
 	}
 
 	public void simulate() {

@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package avaj.coordinates;
+package com.avaj.coordinates;
 
 public class Coordinates {
     private int longitude;
     private int latitude;
     private int height;
 
-    public Coordinates(int longitude, int latitudem, int height) {
+    public Coordinates(int longitude, int latitude, int height) {
         this.longitude = longitude;
-        this.latitude;
+        this.latitude = latitude;
         setHeight(height);
     }
 
@@ -41,5 +41,15 @@ public class Coordinates {
 
     public int getHeight() {
         return height;
+    }
+
+    public void setHeight(int height) {
+        if (height < 0) {
+            this.height = 0;
+        } else if (height > 100) {
+            this.height = 100;
+        } else {
+            this.height = height;
+        }
     }
 }

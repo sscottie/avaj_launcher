@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-package avaj.aircraft;
+package com.avaj.aircraft;
 
-import avaj.coordinates.Coordinates;
+import com.avaj.coordinates.Coordinates;
 
 public abstract class Aircraft {
     protected long id;
