@@ -55,12 +55,12 @@ public class Avaj {
 		try {
 			File file = new File(fileName);
 			BufferedReader sc = new BufferedReader(new FileReader(file));
-			List<Flyable> airCrafts = new ArrayList<Flyable>();
+			List<Flyable> airCrafts = new ArrayList<>();
 			iterations = Integer.parseInt(sc.readLine());
 			if (iterations <= 0) {
 				throw new IncorrectScenarioFileException("The number of iteration is less or equal 0");
 			}
-			String line = null;
+			String line;
 			do {
 				line = sc.readLine();
 				if (line != null) {
