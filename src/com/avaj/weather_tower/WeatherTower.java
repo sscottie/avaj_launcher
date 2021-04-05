@@ -29,7 +29,7 @@ public class WeatherTower extends Tower {
 		changeWeather();
 	}
 
-	private void changeWeather() {
+	void changeWeather() {
 		this.conditionsChanged();
 	}
 

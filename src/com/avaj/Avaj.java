@@ -20,12 +20,9 @@ import com.avaj.exceptions.IncorrectScenarioFileException;
 import com.avaj.exceptions.NoFileException;
 import com.avaj.weather_tower.WeatherTower;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
@@ -36,40 +33,46 @@ public class Avaj {
 	private static int iterations;
 
 	public static void main(String[] args) {
-		if (args.length != 1) {
-			throw new NoFileException("There is no scenario.txt file");
-		}
-		logger();
-		WeatherTower weatherTower = WeatherTower.getWeatherTower();
-		List<Flyable> aircrafts = readScenario(args[0]);
-		for (Flyable aircraft : aircrafts) {
-			aircraft.registerTower(weatherTower);
-		}
-		for (int i = 0; i < iterations; i++) {
-			weatherTower.simulate();
+		try {
+			if (args.length != 1) {
+				throw new NoFileException("There is no scenario.txt file");
+			}
+			createLogger();
+			WeatherTower weatherTower = WeatherTower.getWeatherTower();
+			List<Flyable> aircrafts = readScenario(args[0]);
+			for (Flyable aircraft : aircrafts) {
+				aircraft.registerTower(weatherTower);
+			}
+			for (int i = 0; i < iterations; i++) {
+				weatherTower.simulate();
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 	}
 
 	private static List<Flyable> readScenario(String fileName) {
 		try {
 			File file = new File(fileName);
-			Scanner sc = new Scanner(file);
+			BufferedReader sc = new BufferedReader(new FileReader(file));
 			List<Flyable> airCrafts = new ArrayList<Flyable>();
-			iterations = Integer.parseInt(sc.nextLine());
+			iterations = Integer.parseInt(sc.readLine());
 			if (iterations <= 0) {
 				throw new IncorrectScenarioFileException("The number of iteration is less or equal 0");
 			}
-			while (sc.hasNext()) {
-				airCrafts.add(getAircraft(sc.nextLine().split(" ")));
-			}
+			String line = null;
+			do {
+				line = sc.readLine();
+				if (line != null) {
+					airCrafts.add(getAircraft(line.split("\\s+")));
+				}
+			} while (line != null);
 			sc.close();
 			return airCrafts;
-		} catch (NoFileException e) {
+		} catch (NoFileException | IOException e) {
 			throw new NoFileException("Scenario file not found");
 		} catch (NumberFormatException e) {
 			throw new IncorrectScenarioFileException("Incorrect number of iteration");
-		} catch (FileNotFoundException e) {
-			throw new NoFileException("Scenario file not found");
 		}
 	}
 
@@ -77,10 +80,9 @@ public class Avaj {
 		if (aircraftData.length != 5) {
 			throw new AircraftCreateException("Incorrect aircraft data");
 		}
-		String name = aircraftData[1];
 		Coordinates coordinates = checkAndGetCoordinates(aircraftData[2], aircraftData[3], aircraftData[4]);
 
-		return AircraftFactory.newAircraft(aircraftData[0], name, coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight());
+		return AircraftFactory.newAircraft(aircraftData[0], aircraftData[1], coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight());
 	}
 
 	private static Coordinates checkAndGetCoordinates(String strLongitude, String strLatitude, String strHeight) {
@@ -97,7 +99,7 @@ public class Avaj {
 		}
 	}
 
-	public static void logger() {
+	public static void createLogger() {
 		Logger logger = Logger.getLogger("Logger");
 		try {
 			FileHandler fileHandler = new FileHandler("./../simulation.txt");
@@ -106,7 +108,7 @@ public class Avaj {
 				@Override
 				public String format(LogRecord record) {
 					return record.getMessage() + "\n";
-				} 
+				}
 			});
 			logger.setUseParentHandlers(false);
 		} catch (IOException e) {

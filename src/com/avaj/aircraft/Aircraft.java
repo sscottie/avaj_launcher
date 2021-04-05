@@ -14,11 +14,15 @@ package com.avaj.aircraft;
 
 import com.avaj.coordinates.Coordinates;
 
+import java.util.logging.Logger;
+
 public abstract class Aircraft {
     protected long id;
     protected String name;
     protected Coordinates coordinates;
     private static long idCounter = 0;
+
+    protected Logger logger = Logger.getLogger("Logger");
 
     public Aircraft(String name, Coordinates coordinates) {
         this.name = name;
@@ -32,7 +36,7 @@ public abstract class Aircraft {
 
     @Override
     public String toString() {
-        return " #" + name + " (" + id +")";
+        return "#" + name + " (" + id +")";
     }
 
     public Coordinates getCoordinates() {

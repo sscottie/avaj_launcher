@@ -17,15 +17,22 @@ import com.avaj.coordinates.Coordinates;
 
 public class AircraftFactory {
     public static Flyable newAircraft(String type, String name,
-                                    int longitude, int latitude, int height) {
-        if (AircraftType.BALLOON.getType().equals(type) || AircraftType.BALLOON.getMd5().equals(type)) {
-            return new Baloon(name, new Coordinates(longitude, latitude, height));
-        } else if (AircraftType.HELICOPTER.getType().equals(type) || AircraftType.HELICOPTER.getMd5().equals(type)) {
-            return new Helicopter(name, new Coordinates(longitude, latitude, height));
-        } else if (AircraftType.JETPLANE.getType().equals(type) || AircraftType.JETPLANE.getMd5().equals(type)) {
-            return new Jetplane(name, new Coordinates(longitude, latitude, height));
-        } else {
+                                      int longitude, int latitude, int height) {
+        Coordinates coordinates = new Coordinates(longitude, latitude, height);
+        AircraftType aircraftType = AircraftType.from(type);
+        if (aircraftType == null) {
             throw new AircraftCreateException("Aircraft of type \"" + type + "\"... is that legal?");
+        }
+
+        switch (aircraftType) {
+            case BALLOON:
+                return new Baloon(name, coordinates);
+            case HELICOPTER:
+                return new Helicopter(name, coordinates);
+            case JETPLANE:
+                return new Jetplane(name, coordinates);
+            default:
+                return null;
         }
     }
 }
