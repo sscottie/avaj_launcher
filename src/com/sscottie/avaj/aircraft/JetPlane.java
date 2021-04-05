@@ -3,10 +3,10 @@ package com.sscottie.avaj.aircraft;
 import com.sscottie.avaj.coordinates.Coordinates;
 import com.sscottie.avaj.weather_tower.WeatherTower;
 
-public class Jetplane extends Aircraft implements Flyable {
+public class JetPlane extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
 
-    public Jetplane(String name, Coordinates coordinates) {
+    public JetPlane(String name, Coordinates coordinates) {
         super(name, coordinates);
     }
 
