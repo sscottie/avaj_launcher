@@ -41,7 +41,13 @@ public class Avaj {
 		}
 		logger();
 		WeatherTower weatherTower = WeatherTower.getWeatherTower();
-		List<Flyable> airCrafts = readScenario(args[0]);
+		List<Flyable> aircrafts = readScenario(args[0]);
+		for (Flyable aircraft : aircrafts) {
+			aircraft.registerTower(weatherTower);
+		}
+		for (int i = 0; i < iterations; i++) {
+			weatherTower.simulate();
+		}
 	}
 
 	private static List<Flyable> readScenario(String fileName) {
